@@ -29,3 +29,24 @@ function add_music (tracks, menutrack, menutrack_included)
         end
     end
 end
+
+function musitorio_settings (mod_name, num_tracks)
+    data:extend({
+        {
+            type = "int-setting",
+            name = mod_name.."-menu-track",
+            setting_type = "startup",
+            default_value = 0,
+            minimum_value = 0,
+            maximum_value = num_tracks
+        }
+    })
+    data:extend({
+        {
+            type = "bool-setting",
+            name = mod_name.."-include-menu-track",
+            setting_type = "startup",
+            default_value = false
+        }
+    })
+end
