@@ -30,13 +30,16 @@ function add_music (tracks, menutrack, menutrack_included)
     end
 end
 
-function musitorio_settings (mod_name, num_tracks)
+function musitorio_settings (mod_name, num_tracks, default_title)
+    if not default_title then
+        default_title=0
+    end
     data:extend({
         {
             type = "int-setting",
             name = mod_name.."-menu-track",
             setting_type = "startup",
-            default_value = 0,
+            default_value = default_title,
             minimum_value = 0,
             maximum_value = num_tracks
         }
